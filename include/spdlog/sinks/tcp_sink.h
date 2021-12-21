@@ -66,6 +66,14 @@ protected:
         {
             client_.connect(config_.server_host, config_.server_port);
         }
+        std::string old_str = std::to_string(formatted.size());
+        long unsigned int n_zero = 8;
+        auto new_str = std::string(n_zero - std::min(n_zero, old_str.length() ), '0') + old_str;
+        char const *pchar = new_str.c_str();  //use char const* as target type
+        
+        int length = strlen(pchar);
+
+        client_.send( pchar, length);
         client_.send(formatted.data(), formatted.size());
     }
 
