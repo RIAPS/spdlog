@@ -79,7 +79,7 @@ protected:
 
     void flush_() override {}
     tcpp_sink_config config_;
-    details::tcpp_client client_;
+    details::tcp_client client_;
 };
 
 using tcpp_sink_mt = tcpp_sink<std::mutex>;
